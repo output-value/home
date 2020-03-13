@@ -5,6 +5,7 @@ import com.sdx.home.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2020-03-13
  */
 @RestController
-@RequestMapping("bill")
+@RequestMapping(value = "bill",method = RequestMethod.GET)
 public class HomeBillController {
 
 
