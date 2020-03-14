@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sdx.home.bill.mapper.HomeBillMapper">
+    <select id="queryBillList" parameterType="com.sdx.home.domain.request.BillListDomain"
+            resultType="com.sdx.home.domain.response.BillItem">
+
+        select home_bill.id, user_id ,user.name userName,money, note, date_format(use_date,'%Y-%m-%d') useDate ,bill_type.name typeName
+        from home_bill
+                 left join user on user.id = user_id
+                 left join home_bill_type bill_type on bill_type.id = type_id
+        where money is not null
+        <if test="userId != null">
+            AND user_id = #{userId}
+        </if>
+        <choose>
+            <when test="endDate != null and fromDate != null">
+                and use_date between #{fromDate} and #{endDate}
+            </when>
+            <when test="fromDate != null">
+                and use_date > #{fromDate}
+            </when>
+        </choose>
+        <if test="type != null">
+            and type_id = #{type}
+        </if>
+
+    </select>
 
 </mapper>

@@ -29,7 +29,7 @@ public class HomeBill extends BaseDb {
     /**
      * 花的钱
      */
-    private Float money;
+    private String money;
 
     /**
      * 备注
@@ -39,7 +39,7 @@ public class HomeBill extends BaseDb {
     /**
      * 日期
      */
-    private LocalDateTime date;
+    private String useDate;
 
     /**
      * 花费类型
