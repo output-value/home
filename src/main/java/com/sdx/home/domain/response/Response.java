@@ -9,15 +9,16 @@ import lombok.Data;
 public class Response<T> {
     private int code;
     private String msg;
-    private T t;
+    private T data;
 
     public void failed(String msg) {
         code = -1;
         this.msg = msg;
     }
-    public void success(T t){
+
+    public void success(T data) {
         code = -1;
         this.msg = "success";
-        this.t=t;
+        this.data = data;
     }
 }
