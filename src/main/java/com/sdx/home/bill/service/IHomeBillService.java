@@ -26,5 +26,5 @@ public interface IHomeBillService extends IService<HomeBill> {
      */
     List<BillItem> queryBillList(BillListDomain domain);
 
-    List<Map<String, List<Any>>> querySelector();
+    Map<String, Object> querySelector();
 }

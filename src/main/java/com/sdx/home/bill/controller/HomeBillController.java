@@ -8,8 +8,6 @@ import com.sdx.home.domain.request.BaseRequestDomain;
 import com.sdx.home.domain.request.BillListDomain;
 import com.sdx.home.domain.response.BillItem;
 import com.sdx.home.domain.response.Response;
-import org.omg.CORBA.Any;
-import org.omg.CORBA.OBJ_ADAPTER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,16 +66,18 @@ public class HomeBillController {
 
     /**
      * 添加账单的所有选择选项
+     *
      * @param domain
      * @return
      */
     @RequestMapping("selector")
     public Response<Object> billSelector(@RequestBody BaseRequestDomain domain) {
         Response<Object> response = new Response<>();
-        List<Map<String, List<Any>>> list = homeBillService.querySelector();
-        response.success(list);
+        Map<String, Object> map = homeBillService.querySelector();
+        response.success(map);
         return response;
     }
+
     /**
      * 查询账单
      *
