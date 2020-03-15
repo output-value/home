@@ -4,8 +4,10 @@ import com.sdx.home.bill.entity.HomeBill;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.sdx.home.domain.request.BillListDomain;
 import com.sdx.home.domain.response.BillItem;
+import org.omg.CORBA.Any;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -23,4 +25,6 @@ public interface IHomeBillService extends IService<HomeBill> {
      * @return
      */
     List<BillItem> queryBillList(BillListDomain domain);
+
+    List<Map<String, List<Any>>> querySelector();
 }
