@@ -7,7 +7,8 @@ import lombok.Data;
  */
 @Data
 public class Response<T> {
-    private int code;
+
+    private int code = 0;
     private String msg;
     private T data;
 
@@ -16,9 +17,22 @@ public class Response<T> {
         this.msg = msg;
     }
 
+    public void failed(int code, T data) {
+        this.code = code;
+        this.data = data;
+    }
+
     public void success(T data) {
-        code = -1;
+        this.code = 1;
         this.msg = "success";
         this.data = data;
+    }
+    public void success() {
+        this.code = 0;
+        this.msg = "success";
+    }
+    public void success(String msg) {
+        this.code = 0;
+        this.msg = msg;
     }
 }

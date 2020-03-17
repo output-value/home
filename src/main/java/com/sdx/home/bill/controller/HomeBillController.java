@@ -59,8 +59,7 @@ public class HomeBillController {
         bill.setUseDate(domain.getDate());
         bill.setTypeId(domain.getTypeId());
         homeBillService.save(bill);
-        response.setCode(1);
-        response.setMsg("success");
+        response.success();
         return response;
     }
 
